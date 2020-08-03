@@ -1,0 +1,22 @@
+﻿@inherits LayoutComponentBase
+@using BlazorCustomAuth.Web.Pages.Auth;
+<AuthorizeView>
+    <Authorized>
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+
+        <div class="main">
+            <LogOut></LogOut>
+            <div class="content px-4">
+                @Body
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <Login>
+        </Login>
+    </NotAuthorized>
+
+</AuthorizeView>
+

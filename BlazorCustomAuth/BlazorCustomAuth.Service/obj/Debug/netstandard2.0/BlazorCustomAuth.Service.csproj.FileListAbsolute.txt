@@ -1,0 +1,16 @@
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\bin\Debug\netstandard2.0\BlazorCustomAuth.Service.deps.json
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\bin\Debug\netstandard2.0\BlazorCustomAuth.Service.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\bin\Debug\netstandard2.0\BlazorCustomAuth.Service.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\obj\Debug\netstandard2.0\BlazorCustomAuth.Service.AssemblyInfoInputs.cache
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\obj\Debug\netstandard2.0\BlazorCustomAuth.Service.AssemblyInfo.cs
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\obj\Debug\netstandard2.0\BlazorCustomAuth.Service.csproj.CoreCompileInputs.cache
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\obj\Debug\netstandard2.0\BlazorCustomAuth.Service.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\obj\Debug\netstandard2.0\BlazorCustomAuth.Service.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\obj\Debug\netstandard2.0\BlazorCustomAuth.Service.csprojAssemblyReference.cache
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\bin\Debug\netstandard2.0\BlazorCustomAuth.Common.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\bin\Debug\netstandard2.0\BlazorCustomAuth.Entities.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\bin\Debug\netstandard2.0\BlazorCustomAuth.Repo.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\bin\Debug\netstandard2.0\BlazorCustomAuth.Entities.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\bin\Debug\netstandard2.0\BlazorCustomAuth.Repo.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\bin\Debug\netstandard2.0\BlazorCustomAuth.Common.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Service\obj\Debug\netstandard2.0\BlazorCustomAuth.Service.csproj.CopyComplete

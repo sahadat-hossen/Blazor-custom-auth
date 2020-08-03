@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorCustomAuth.Entities\BlazorCustomAuth.Entities.csproj" />
+    <ProjectReference Include="..\BlazorCustomAuth.Repo\BlazorCustomAuth.Repo.csproj" />
+  </ItemGroup>
+
+</Project>

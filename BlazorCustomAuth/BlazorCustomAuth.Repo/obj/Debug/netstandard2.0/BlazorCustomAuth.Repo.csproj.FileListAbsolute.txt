@@ -1,0 +1,14 @@
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\bin\Debug\netstandard2.0\BlazorCustomAuth.Repo.deps.json
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\bin\Debug\netstandard2.0\BlazorCustomAuth.Repo.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\bin\Debug\netstandard2.0\BlazorCustomAuth.Repo.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\obj\Debug\netstandard2.0\BlazorCustomAuth.Repo.csprojAssemblyReference.cache
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\obj\Debug\netstandard2.0\BlazorCustomAuth.Repo.AssemblyInfoInputs.cache
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\obj\Debug\netstandard2.0\BlazorCustomAuth.Repo.AssemblyInfo.cs
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\obj\Debug\netstandard2.0\BlazorCustomAuth.Repo.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\obj\Debug\netstandard2.0\BlazorCustomAuth.Repo.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\bin\Debug\netstandard2.0\BlazorCustomAuth.Common.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\bin\Debug\netstandard2.0\BlazorCustomAuth.Entities.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\bin\Debug\netstandard2.0\BlazorCustomAuth.Entities.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\bin\Debug\netstandard2.0\BlazorCustomAuth.Common.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\obj\Debug\netstandard2.0\BlazorCustomAuth.Repo.csproj.CoreCompileInputs.cache
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Repo\obj\Debug\netstandard2.0\BlazorCustomAuth.Repo.csproj.CopyComplete

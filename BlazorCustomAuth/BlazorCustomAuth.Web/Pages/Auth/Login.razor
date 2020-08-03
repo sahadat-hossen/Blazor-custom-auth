@@ -1,0 +1,39 @@
+﻿@page "/Auth/Login"
+@using BlazorCustomAuth.Web.Auth;
+@using BlazorCustomAuth.Web.Data;
+@inject AuthenticationStateProvider auth;
+@inject NavigationManager navManger;
+
+<LogInStyle></LogInStyle>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <img src="/User.png" id="icon" alt="User Icon" />
+
+        </div>
+
+        <!-- Login Form -->
+        <form>
+            <input type="text" id="login" @bind-value="loginModel.UserName" class="fadeIn second"  placeholder="User ID">
+            <input type="text" id="password" @bind-value="loginModel.Password" class="fadeIn third"  placeholder="Password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
+@code {
+    LoginModel loginModel = new LoginModel();
+    public async Task LoginFn()
+    {
+        await ((AppAuthStateProvider)auth).SetAuthenticationStateAsync(loginModel);
+        navManger.NavigateTo("/");
+
+    }
+}

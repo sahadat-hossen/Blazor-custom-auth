@@ -1,0 +1,8 @@
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Common\bin\Debug\netstandard2.0\BlazorCustomAuth.Common.deps.json
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Common\bin\Debug\netstandard2.0\BlazorCustomAuth.Common.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Common\bin\Debug\netstandard2.0\BlazorCustomAuth.Common.pdb
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Common\obj\Debug\netstandard2.0\BlazorCustomAuth.Common.AssemblyInfoInputs.cache
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Common\obj\Debug\netstandard2.0\BlazorCustomAuth.Common.AssemblyInfo.cs
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Common\obj\Debug\netstandard2.0\BlazorCustomAuth.Common.csproj.CoreCompileInputs.cache
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Common\obj\Debug\netstandard2.0\BlazorCustomAuth.Common.dll
+D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Common\obj\Debug\netstandard2.0\BlazorCustomAuth.Common.pdb
