@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Q+52szBb+ThAQRytppsHWLgctM4y7HC/xIPKfDuWyb3TcHf7BJGVogMImedVu85cBMqQc0RALXFperMA9hfO9g==",
+  "dgSpecHash": "/7olMYirnIqeCyVNs98uegmoGQW6BXsECC8reGv3ZQ94vZ7lZnFJhSAz1UCHekE8NpAKZeXSi0onXJLPawEtig==",
   "success": true,
   "projectFilePath": "D:\\Projects\\Blazor-custom-auth\\BlazorCustomAuth\\BlazorCustomAuth.Web\\BlazorCustomAuth.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\blazored.localstorage\\3.0.0\\blazored.localstorage.3.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\blazored.toast\\3.1.2\\blazored.toast.3.1.2.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.6\\microsoft.aspnetcore.authorization.3.1.6.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.6\\microsoft.aspnetcore.components.3.1.6.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.6\\microsoft.aspnetcore.components.analyzers.3.1.6.nupkg.sha512",

@@ -3,6 +3,7 @@ using BlazorCustomAuth.Repo;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BlazorCustomAuth.Service
 {
@@ -13,6 +14,11 @@ namespace BlazorCustomAuth.Service
         public UserService(IUserRepository  userRepository):base(userRepository)
         {
             this.userRepository = userRepository;
+        }
+
+        public async Task<User> GetUserByUserNamePassword(string userName, string password)
+        {
+            return await this.userRepository.GetUserByUserNamePassword(userName,password);
         }
     }
 }

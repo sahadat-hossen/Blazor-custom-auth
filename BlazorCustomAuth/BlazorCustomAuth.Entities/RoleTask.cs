@@ -9,7 +9,7 @@ namespace BlazorCustomAuth.Entities
     [Table("RoleTasks")]
      public class RoleTask:Entry
      {
-        public RoleTaskEnum Task { get; set; }
+        public string Task { get; set; }
         public int UserRoleId { get; set; }
         [ForeignKey("UserRoleId")]
         public UserRole UserRole { get; set; }

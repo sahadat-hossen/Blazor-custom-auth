@@ -18,6 +18,7 @@ using BlazorCustomAuth.Web.Auth;
 using Microsoft.AspNetCore.Components.Authorization;
 using Blazored.LocalStorage;
 using BlazorCustomAuth.Service;
+using Blazored.Toast;
 
 namespace BlazorCustomAuth.Web
 {
@@ -43,6 +44,7 @@ namespace BlazorCustomAuth.Web
             // services.AddIdentityCore<User>().AddRoles<RoleTask>();
             services.AddScoped<AuthenticationStateProvider, AppAuthStateProvider>();
             services.AddBlazoredLocalStorage();
+            services.AddBlazoredToast();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             services.AddScoped<IUserService, UserService>();
@@ -71,7 +73,7 @@ namespace BlazorCustomAuth.Web
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+               // endpoints.MapControllers();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });

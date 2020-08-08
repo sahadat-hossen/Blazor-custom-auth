@@ -1,4 +1,5 @@
-﻿using BlazorCustomAuth.Service;
+﻿using BlazorCustomAuth.Entities;
+using BlazorCustomAuth.Service;
 using BlazorCustomAuth.Web.Data;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -13,42 +14,68 @@ namespace BlazorCustomAuth.Web.Auth
     public class AppAuthStateProvider : AuthenticationStateProvider
     {
         private readonly ILocalStorageService _localStorageService;
-        private readonly IUserService _userService;
+        private readonly IUserRoleService _userRoleService;
 
-        public AppAuthStateProvider(ILocalStorageService localStorageService,IUserService userService)
+        public AppAuthStateProvider(ILocalStorageService localStorageService, IUserRoleService userRoleService)
         {
-           _localStorageService = localStorageService;
-            _userService = userService;
+            _localStorageService = localStorageService;
+            _userRoleService = userRoleService;
         }
-      
+
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
-            //var _claimsPrincipal = await _localStorageService.GetItemAsync<ClaimsPrincipal>("AuthInfo");
-            //_claimsPrincipal = _claimsPrincipal ?? new ClaimsPrincipal();
-            string authInfo = await _localStorageService.GetItemAsync<string>("AuthInfo");
+            var user = await _localStorageService.GetItemAsync<User>("userInfo");
+            var userRoles = await _localStorageService.GetItemAsync<List<string>>("userRoles");
             ClaimsIdentity claimsIdentity;
-            if (authInfo != null)
+            if (user != null)
             {
                 claimsIdentity = new ClaimsIdentity(new[] {
-                new Claim(ClaimTypes.Name, "mrfibuli"),
-                 }, "userName");
+                new Claim(ClaimTypes.Name, user.FullName),
+                //new Claim(ClaimTypes.Email,user.Email),
+                new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
+                new Claim(ClaimTypes.GivenName,user.UserName)
+                 }, "userInfo");
+                if (userRoles != null)
+                {
+                    foreach(var role in userRoles)
+                    {
+                        claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, role));
+                    }
 
+                }
+
+                
             }
             else
             {
                 claimsIdentity = new ClaimsIdentity();
             }
-            var user = new ClaimsPrincipal(claimsIdentity);
-            return await Task.FromResult(new AuthenticationState(user));
+            var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+            return await Task.FromResult(new AuthenticationState(claimsPrincipal));
         }
-        public async Task SetAuthenticationStateAsync(LoginModel model)
+        public async Task<Boolean> SetAuthenticationStateAsync(User user)
         {
-            await _localStorageService.SetItemAsync<string>("AuthInfo", "Sahadat@");
-            await   Task.CompletedTask;
+            try
+            {
+                await _localStorageService.SetItemAsync<User>("userInfo", user);
+                var role = await _userRoleService.GetByIdAsync(user.RoleId);
+                if (role != null && role.RoleTasks.Any())
+                {
+                    await _localStorageService.SetItemAsync<List<string>>("userRoles", role.RoleTasks.Select(s => s.Task).ToList());
+                }
+               
+
+                return await Task.FromResult(true);
+            }
+            catch (Exception ex)
+            {
+                return await Task.FromResult(false);
+            }
         }
         public async Task ClearAuthenticationAsync()
         {
-            await _localStorageService.RemoveItemAsync("AuthInfo");
+            await _localStorageService.RemoveItemAsync("userInfo");
+            await _localStorageService.RemoveItemAsync("userRoles");
             await Task.CompletedTask;
         }
     }

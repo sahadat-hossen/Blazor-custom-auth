@@ -1,8 +1,13 @@
 ﻿@page "/Auth/Login"
 @using BlazorCustomAuth.Web.Auth;
 @using BlazorCustomAuth.Web.Data;
+@using BlazorCustomAuth.Service
+@inject IToastService toastService
 @inject AuthenticationStateProvider auth;
-@inject NavigationManager navManger;
+@inject IUserService userService;
+@inject NavigationManager UriHelper
+
+
 
 <LogInStyle></LogInStyle>
 <div class="wrapper fadeInDown">
@@ -16,13 +21,14 @@
 
         <!-- Login Form -->
         <form>
-            <input type="text" id="login" @bind-value="loginModel.UserName" class="fadeIn second"  placeholder="User ID">
-            <input type="text" id="password" @bind-value="loginModel.Password" class="fadeIn third"  placeholder="Password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
+            <input type="text" id="login" @bind-value="loginModel.UserName" class="fadeIn second" placeholder="User ID">
+            <input type="password" id="password" @bind-value="loginModel.Password" class="fadeIn third" placeholder="Password">
+            <input type="button" @onclick="LoginFn" class="fadeIn fourth" value="Log In">
         </form>
 
         <!-- Remind Passowrd -->
         <div id="formFooter">
+         
             <a class="underlineHover" href="#">Forgot Password?</a>
         </div>
 
@@ -30,10 +36,50 @@
 </div>
 @code {
     LoginModel loginModel = new LoginModel();
+    Boolean login = false;
+    protected override void OnInitialized()
+    {
+
+
+    }
+    void NavigatetoNextComponent()
+    {
+        UriHelper.NavigateTo("index");
+    }
     public async Task LoginFn()
     {
-        await ((AppAuthStateProvider)auth).SetAuthenticationStateAsync(loginModel);
-        navManger.NavigateTo("/");
+        if (string.IsNullOrEmpty(loginModel.UserName))
+        {
+            toastService.ShowError("Enter Your User Name!");
+        }
+        else if (string.IsNullOrEmpty(loginModel.Password))
+        {
+            toastService.ShowError("Enter Your Password!");
+        }
+        else
+        {
+            var user = await userService.GetUserByUserNamePassword(loginModel.UserName, loginModel.Password);
+            if (user == null)
+            {
+                toastService.ShowError("User Name or Password not match!");
+            }
+            else
+            {
+                login=   await ((AppAuthStateProvider)auth).SetAuthenticationStateAsync(user);
+                if (login)
+                {
+                    toastService.ShowSuccess("Log in sucessfull!");
+                    NavigatetoNextComponent();
+                }
+                else
+                {
+                    toastService.ShowSuccess("Log in Failed!");
+                }
+
+            }
+
+        }
+
 
     }
 }
