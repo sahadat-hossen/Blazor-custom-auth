@@ -5,7 +5,7 @@
 <AuthorizeView>
     <Authorized>
         <div class="top-row px-4">
-            @context.User.Identity.Name
+            @context.User.Identity.Name &nbsp;
             <button @onclick="LogOutFn" class="btn btn-sm btn-danger">Logout</button>
         </div>
     </Authorized>
@@ -14,6 +14,6 @@
     public async Task LogOutFn()
     {
         await   ((AppAuthStateProvider)auth).ClearAuthenticationAsync();
-        navManger.NavigateTo("/");
+        navManger.NavigateTo("/",true);
     }
 }

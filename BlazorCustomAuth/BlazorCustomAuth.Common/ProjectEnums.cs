@@ -15,6 +15,7 @@ namespace BlazorCustomAuth.Common
         public static string SuperAdmin => "SuperAdmin";
         public static class User
         {
+            public static string List => "User.List";
             public static string Add => "User.Add";
             public static string Edit => "User.Edit";
             public static string Delete => "User.Delete";
@@ -24,6 +25,7 @@ namespace BlazorCustomAuth.Common
 
         public static class UserRole
         {
+            public static string List => "UserRole.List";
             public static string Add => "UserRole.Add";
             public static string Edit => "UserRole.Edit";
             public static string Delete => "UserRole.Delete";

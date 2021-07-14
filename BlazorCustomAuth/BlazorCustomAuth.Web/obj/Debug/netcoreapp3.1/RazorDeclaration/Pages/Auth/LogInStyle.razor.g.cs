@@ -90,6 +90,27 @@ using Blazored.Toast.Services;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 12 "D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Web\_Imports.razor"
+using MatBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 13 "D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Web\_Imports.razor"
+using Blazored.Modal;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 14 "D:\Projects\Blazor-custom-auth\BlazorCustomAuth\BlazorCustomAuth.Web\_Imports.razor"
+using Blazored.Modal.Services;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/Auth/LogInStyle")]
     public partial class LogInStyle : Microsoft.AspNetCore.Components.ComponentBase
     {

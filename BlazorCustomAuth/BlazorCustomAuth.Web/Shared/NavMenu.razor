@@ -1,35 +1,26 @@
 ﻿@using BlazorCustomAuth.Common
-<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="index">Blazor Custom Auth</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
+@inject NavigationManager Url
+<style>
+    .mdc-drawer {
+        box-shadow: 2px 0px 2px 0px rgba(199, 199, 199, 0.29);
+    }
+</style>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
+<MatNavMenu Multi="true">
+    <MatNavItem Href="" NavLinkMatch="NavLinkMatch.All"><MatIcon Icon="home"></MatIcon>&nbsp; Home</MatNavItem>
+    <AuthorizeView Roles="@Functions.JoinRoles(RoleTaskList.SuperAdmin,RoleTaskList.UserRole.List)">
+        <Authorized>
+            <MatNavItem href="userroles"><MatIcon Icon="accessibility"></MatIcon>&nbsp;User Roles</MatNavItem>
+        </Authorized>
+    </AuthorizeView>
+    <AuthorizeView Roles="@Functions.JoinRoles(RoleTaskList.SuperAdmin,RoleTaskList.User.List)">
+        <Authorized>
+            <MatNavItem href="users"><MatIcon Icon="accessibility"></MatIcon>&nbsp;Users</MatNavItem>
+        </Authorized>
+    </AuthorizeView>
+</MatNavMenu>
 
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="index">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        <AuthorizeView Roles="@Functions.JoinRoles(RoleTaskList.SuperAdmin,RoleTaskList.User.Add)">
-            <Authorized>
-                <li class="nav-item px-3">
-                    <NavLink class="nav-link" href="counter">
-                        <span class="oi oi-plus" aria-hidden="true"></span> Counter
-                    </NavLink>
-                </li>
-            </Authorized>
-        </AuthorizeView>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-    </ul>
-</div>
+
 
 @code {
     private bool collapseNavMenu = true;

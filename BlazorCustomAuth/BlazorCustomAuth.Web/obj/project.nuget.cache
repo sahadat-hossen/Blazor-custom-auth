@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "/7olMYirnIqeCyVNs98uegmoGQW6BXsECC8reGv3ZQ94vZ7lZnFJhSAz1UCHekE8NpAKZeXSi0onXJLPawEtig==",
+  "dgSpecHash": "B556PBVH6ZwEbCg3AeRHZXBwfjXoh380UsvZtEfV0IWf5Sr9iLCDVxag+L4Ps4I4Ha2yhlDaZ4ey6YKWy5dPIg==",
   "success": true,
   "projectFilePath": "D:\\Projects\\Blazor-custom-auth\\BlazorCustomAuth\\BlazorCustomAuth.Web\\BlazorCustomAuth.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\blazored.localstorage\\3.0.0\\blazored.localstorage.3.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\blazored.modal\\5.0.3\\blazored.modal.5.0.3.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\blazored.toast\\3.1.2\\blazored.toast.3.1.2.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\matblazor\\2.6.2\\matblazor.2.6.2.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.6\\microsoft.aspnetcore.authorization.3.1.6.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.6\\microsoft.aspnetcore.components.3.1.6.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.6\\microsoft.aspnetcore.components.analyzers.3.1.6.nupkg.sha512",
@@ -41,6 +43,7 @@
     "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.6\\microsoft.extensions.primitives.3.1.6.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.identity.client\\3.0.8\\microsoft.identity.client.3.0.8.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.jsinterop\\3.1.6\\microsoft.jsinterop.3.1.6.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.jsinterop.webassembly\\3.2.1\\microsoft.jsinterop.webassembly.3.2.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",

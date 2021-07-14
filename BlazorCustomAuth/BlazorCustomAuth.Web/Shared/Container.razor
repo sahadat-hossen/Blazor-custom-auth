@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Components
+@inject IJSRuntime JsRuntime
+
+<div style="display: flex; flex-direction: column; padding: 10px;" class="mat-elevation-z5 mdc-theme--surface">
+    @Header
+    <div style="padding: 5px; border: 1px solid white;" class="@Class">
+        @Content
+    </div>
+
+</div>
+
+
+@code
+{
+
+    [Parameter]
+    public string Class { get; set; }
+
+    [Parameter]
+    public RenderFragment Header { get; set; }
+    [Parameter]
+    public RenderFragment Content { get; set; }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            JsRuntime.InvokeAsync<object>("matBlazorDemo.initAd");
+        }
+    }
+
+}

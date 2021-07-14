@@ -1,0 +1,109 @@
+﻿@page "/users"
+@using BlazorCustomAuth.Service
+@using BlazorCustomAuth.Entities
+@inject IUserService userService
+@inject IModalService Modal
+
+
+<style>
+    .width-modal-md {
+        min-width: 450px;
+    }
+</style>
+<Container>
+    <Header>
+        &nbsp;
+        <div class="row">
+            <div class="col-md-2">
+                <MatH6>Users</MatH6>
+            </div>
+            <div class="col-md-9">
+
+            </div>
+            <div class="col-md-1">
+                <MatButton @onclick="@(() => ShowForm(null))" Style="align-content:end"><MatIcon>control_point</MatIcon></MatButton>
+            </div>
+        </div>
+
+    </Header>
+    <Content>
+
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>
+                        Full Name
+                    </th>
+                    <th>User Name</th>
+                    <th>Phone No</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (users.Any())
+                {
+                    foreach (var user in users)
+                    {
+                        <tr>
+                            <td>
+                                @user.FullName
+                            </td>
+                            <td>@user.UserName</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>@user.Address</td>
+                            <td>@user.Email</td>
+                            <td>@user.Role?.RoleName</td>
+                            <td>
+                                @user.Status
+                            </td>
+                            <td>
+                                <MatButton @onclick="@(() => ShowForm(user.Id))"><MatIcon>edit</MatIcon></MatButton>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </Content>
+</Container>
+@code {
+    List<User> users = new List<User>();
+    protected override async Task OnInitializedAsync()
+    {
+        users = await userService.GetAllAsync();
+    }
+
+
+    public EventCallback EditUser(int id)
+    {
+        return EventCallback.Empty;
+    }
+
+    public void ShowForm(int? id)
+    {
+        ModalOptions modalOptions = new ModalOptions();
+        modalOptions.HideCloseButton = true;
+
+        if (id.HasValue)
+        {
+            ModalParameters modalParameters = new ModalParameters();
+            modalParameters.Add("Id", id);
+            Modal.Show<Form>("Edit User", modalParameters, modalOptions);
+        }
+        else
+        {
+            Modal.Show<Form>("Add User", modalOptions);
+        }
+
+
+    }
+}

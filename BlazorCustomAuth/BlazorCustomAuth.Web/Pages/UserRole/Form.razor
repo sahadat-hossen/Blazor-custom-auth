@@ -1,0 +1,142 @@
+﻿@using BlazorCustomAuth.Entities
+@using BlazorCustomAuth.Service
+@inject IUserRoleService userRoleService
+@using BlazorCustomAuth.Web.Data
+@using BlazorCustomAuth.Common
+@inject IToastService ToastService;
+@inject NavigationManager navManager
+<style>
+    .width-modal-md {
+        min-width: 450px;
+        max-width: 600px;
+    }
+</style>
+
+<EditForm Model="@userRole" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="row width-modal-md">
+
+        <div class="row">
+            <div class="col-md-12">
+                <MatTextField @bind-Value="userRole.RoleName" Label="Role Name" PlaceHolder="Role Name"></MatTextField>
+
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+
+            @if (roleTaskist.Any())
+            {
+                @foreach (var roleTaskGroup in roleTaskist.GroupBy(s => s.GroupName))
+                {
+                    <div class="col-md-12">
+                        <h6 class="text-left">
+                            @roleTaskGroup.Key
+                        </h6>
+                    </div>
+                    <MatDivider></MatDivider>
+                    @foreach (var roleTask in roleTaskGroup)
+                    {
+                        <div class="col-md-2">
+                            <MatCheckbox @bind-Value="@roleTask.IsCheck" Label="@roleTask.TaskName"></MatCheckbox>
+                        </div>
+                    }
+
+                }
+            }
+            else
+            {
+                <span>Loding...</span>
+            }
+        </div>
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button @onclick="Cancel" class="btn btn-secondary">Cancel</button>
+        </div>
+
+    </div>
+
+</EditForm>
+
+@code {
+    [CascadingParameter] BlazoredModalInstance BlazoredModal { get; set; }
+
+    [Parameter] public int? Id { get; set; }
+    UserRole userRole = new UserRole();
+    public List<RoleTaskModel> roleTaskist = new List<RoleTaskModel>();
+    public string title = "Add User Role";
+    protected override async Task OnInitializedAsync()
+    {
+        if (Id.HasValue)
+        {
+            title = "Edit User Role";
+            userRole = await userRoleService.GetByIdAsync(Id.Value);
+        }
+
+        LoadRoleTasks();
+    }
+    private async Task HandleValidSubmit()
+    {
+        if (string.IsNullOrWhiteSpace(userRole.RoleName))
+        {
+            ToastService.ShowError("Role Name can not be null!");
+
+        }
+        else if (!roleTaskist.Any(a => a.IsCheck))
+        {
+            ToastService.ShowError("Role deserve atleast one task!");
+        }
+        else
+        {
+            userRole.RoleTasks = roleTaskist.Where(s => s.IsCheck).Select(s =>new RoleTask {Task= s.TaskValue }).ToList();
+            userRole.Status = StatusEnum.Active;
+            if (userRole.Id > 0)
+            {
+
+            }
+            else
+            {
+                int i = await userRoleService.AddAsync(userRole);
+                if (i > 0)
+                {
+                    ToastService.ShowSuccess("Save Successful", "Confirm Message");
+                    navManager.NavigateTo("userroles", true);
+                }
+                else
+                {
+                    ToastService.ShowError("Save Failed", "Confirm Message");
+                }
+            }
+
+
+        }
+    }
+    public void LoadRoleTasks()
+    {
+
+        //User
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User", IsCheck = IsAlreadyChecked(RoleTaskList.User.Add), TaskValue = RoleTaskList.User.Add, TaskName = "Add" });
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User", IsCheck = IsAlreadyChecked(RoleTaskList.User.Edit), TaskValue = RoleTaskList.User.Edit, TaskName = "Edit" });
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User", IsCheck = IsAlreadyChecked(RoleTaskList.User.List), TaskValue = RoleTaskList.User.List, TaskName = "List" });
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User", IsCheck = IsAlreadyChecked(RoleTaskList.User.Details), TaskValue = RoleTaskList.User.Details, TaskName = "Details" });
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User", IsCheck = IsAlreadyChecked(RoleTaskList.User.Delete), TaskValue = RoleTaskList.User.Delete, TaskName = "Delete" });
+        //User Role
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User Role", IsCheck = IsAlreadyChecked(RoleTaskList.UserRole.Add), TaskValue = RoleTaskList.UserRole.Add, TaskName = "Add" });
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User Role", IsCheck = IsAlreadyChecked(RoleTaskList.UserRole.Edit), TaskValue = RoleTaskList.UserRole.Edit, TaskName = "Edit" });
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User Role", IsCheck = IsAlreadyChecked(RoleTaskList.UserRole.List), TaskValue = RoleTaskList.UserRole.List, TaskName = "List" });
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User Role", IsCheck = IsAlreadyChecked(RoleTaskList.UserRole.Details), TaskValue = RoleTaskList.UserRole.Details, TaskName = "Details" });
+        roleTaskist.Add(new RoleTaskModel { GroupName = "User Role", IsCheck = IsAlreadyChecked(RoleTaskList.UserRole.Delete), TaskValue = RoleTaskList.UserRole.Delete, TaskName = "Delete" });
+
+    }
+    public Boolean IsAlreadyChecked(string TaskName)
+    {
+        return userRole.RoleTasks != null ? userRole.RoleTasks.Any(s => s.Task == TaskName) : false;
+    }
+    void Cancel()
+    {
+        BlazoredModal.Cancel();
+    }
+
+}
+

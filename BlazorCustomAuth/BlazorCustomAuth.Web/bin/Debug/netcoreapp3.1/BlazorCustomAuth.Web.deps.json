@@ -27,7 +27,9 @@
           "BlazorCustomAuth.Repo": "1.0.0",
           "BlazorCustomAuth.Service": "1.0.0",
           "Blazored.LocalStorage": "3.0.0",
+          "Blazored.Modal": "5.0.3",
           "Blazored.Toast": "3.1.2",
+          "MatBlazor": "2.6.2",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.6",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.6",
@@ -313,6 +315,23 @@
           "lib/netstandard2.1/Blazored.LocalStorage.dll": {}
         }
       },
+      "Blazored.Modal/5.0.3": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.6",
+          "Microsoft.AspNetCore.Components.Web": "3.1.6",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.6",
+          "Microsoft.JSInterop.WebAssembly": "3.2.1"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Blazored.Modal.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Blazored.Modal.dll": {}
+        }
+      },
       "Blazored.Toast/3.1.2": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "3.1.6",
@@ -327,6 +346,21 @@
         },
         "compile": {
           "lib/netstandard2.0/Blazored.Toast.dll": {}
+        }
+      },
+      "MatBlazor/2.6.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "3.1.6",
+          "Microsoft.AspNetCore.Components.Web": "3.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.1/MatBlazor.dll": {
+            "assemblyVersion": "2.6.2.0",
+            "fileVersion": "2.6.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/MatBlazor.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/3.1.6": {
@@ -793,6 +827,20 @@
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.JSInterop.dll": {}
+        }
+      },
+      "Microsoft.JSInterop.WebAssembly/3.2.1": {
+        "dependencies": {
+          "Microsoft.JSInterop": "3.1.6"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.JSInterop.WebAssembly.dll": {
+            "assemblyVersion": "3.2.1.0",
+            "fileVersion": "3.200.120.31714"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Microsoft.JSInterop.WebAssembly.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/2.0.0": {},
@@ -3009,12 +3057,26 @@
       "path": "blazored.localstorage/3.0.0",
       "hashPath": "blazored.localstorage.3.0.0.nupkg.sha512"
     },
+    "Blazored.Modal/5.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fniADBMKHTxOK+lgQuZmkcc4I629rQOvOfgPsiUfkNM93TELmSTPoKWc3co6nDW8P1kkUQvzaALUSi7wNQcCWg==",
+      "path": "blazored.modal/5.0.3",
+      "hashPath": "blazored.modal.5.0.3.nupkg.sha512"
+    },
     "Blazored.Toast/3.1.2": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-EDwxOEeqcT8vNIqn+sCYv/Maouu223UfMCuBxtlUpqPsVHql6OmhZgpo3j9GssIkGU1utKKdi4NaAoUoXDKWSQ==",
       "path": "blazored.toast/3.1.2",
       "hashPath": "blazored.toast.3.1.2.nupkg.sha512"
+    },
+    "MatBlazor/2.6.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OJcsHOvP3bmNH1crg3ZojkWhT5IsAV8FIT4dkZZ11LHmBnPweT2bAynHbLOYOsl62nCsnjw/3VM7kd0cFRd1fQ==",
+      "path": "matblazor/2.6.2",
+      "hashPath": "matblazor.2.6.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/3.1.6": {
       "type": "package",
@@ -3260,6 +3322,13 @@
       "sha512": "sha512-k/AaZDugrwLO4gkLrPkFiWIzjC0BxPGF2yds6P6PYXNG4Jw/od3UZJrVSRLakQPDsnXLMDiyg7uGWtDI17FtSQ==",
       "path": "microsoft.jsinterop/3.1.6",
       "hashPath": "microsoft.jsinterop.3.1.6.nupkg.sha512"
+    },
+    "Microsoft.JSInterop.WebAssembly/3.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wYKx4YeBTnv1bzKZtdsWH0O9OmmYm7zq56QkKCUdl1hDg4Gn0lmCDfYBC0r1k5/Wh64IveuWwpkyTWjqCmp4pg==",
+      "path": "microsoft.jsinterop.webassembly/3.2.1",
+      "hashPath": "microsoft.jsinterop.webassembly.3.2.1.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/2.0.0": {
       "type": "package",

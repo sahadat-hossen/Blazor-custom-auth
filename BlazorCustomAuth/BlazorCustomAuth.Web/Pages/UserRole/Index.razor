@@ -1,0 +1,106 @@
+﻿@page "/userroles"
+@using BlazorCustomAuth.Entities
+@using BlazorCustomAuth.Service
+@using System.Diagnostics
+@inject IUserRoleService userRoleService
+@inject IModalService Modal
+    <style>
+        .width-modal-md {
+            min-width: 450px;
+        }
+    </style>
+<Container>
+    <Header>
+        &nbsp;
+        <div class="row">
+            <div class="col-md-2">
+                <MatH6>User Roles</MatH6>
+            </div>
+            <div class="col-md-9">
+
+            </div>
+            <div class="col-md-1">
+                <MatButton @onclick="@(() => ShowForm(null))" Style="align-content:end"><MatIcon>control_point</MatIcon></MatButton>
+            </div>
+        </div>
+      
+    </Header>
+    <Content>
+
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                    <th>
+                        Role Name
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Actions
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (userRoles.Any())
+                {
+                    foreach(var role in userRoles)
+                    {
+                        <tr>
+                            <td>
+                                @role.RoleName
+                            </td>
+                            <td>
+                                @role.Status
+                            </td>
+                            <td>
+                                <MatButton @onclick="@(() => ShowForm(role.Id))"><MatIcon>edit</MatIcon></MatButton>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </Content>
+</Container>
+
+
+@code {
+
+
+
+    List<UserRole> userRoles = new List<UserRole>();
+    protected override async Task OnInitializedAsync()
+    {
+        userRoles = await userRoleService.GetAllAsync();
+    }
+
+
+    public EventCallback EditRole(int id)
+    {
+        return EventCallback.Empty;
+    }
+
+    public void ShowForm(int? id)
+    {
+        ModalOptions modalOptions = new ModalOptions();
+        modalOptions.HideCloseButton = true;
+
+        if (id.HasValue)
+        {
+            ModalParameters modalParameters = new ModalParameters();
+            modalParameters.Add("Id", id);
+            Modal.Show<Form>("Edit User Role",modalParameters, modalOptions);
+        }
+        else
+        {
+            Modal.Show<Form>("Add User Role", modalOptions);
+        }
+
+
+    }
+
+
+
+}

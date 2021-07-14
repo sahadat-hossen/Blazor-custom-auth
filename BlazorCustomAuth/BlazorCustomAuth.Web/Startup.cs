@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Blazored.LocalStorage;
 using BlazorCustomAuth.Service;
 using Blazored.Toast;
+using Blazored.Modal;
 
 namespace BlazorCustomAuth.Web
 {
@@ -45,6 +46,8 @@ namespace BlazorCustomAuth.Web
             services.AddScoped<AuthenticationStateProvider, AppAuthStateProvider>();
             services.AddBlazoredLocalStorage();
             services.AddBlazoredToast();
+            services.AddBlazoredModal();
+         
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             services.AddScoped<IUserService, UserService>();
